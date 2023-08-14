@@ -76,7 +76,7 @@ class UserControllerTest {
                 .andExpect(status().isOk());
 
         User userSec = new User(null, "niktoneponyal@gmail.com",
-                "anigilyator2000", "Vi",
+                "anigilyator2002", "Vi",
                 LocalDate.of(2000, 12, 1));
         body = objectMapper.writeValueAsString(userSec);
         this.mockMvc.perform(post("/users")
