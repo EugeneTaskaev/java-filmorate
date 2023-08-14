@@ -54,9 +54,9 @@ class FilmControllerTest {
                         .content(body)
                         .contentType("application/json"))
                 .andExpect(status().isOk());
-        Film filmUpdate = new Film("Ку! Кин-дза-дза!"
-                , "советская двухсерийная трагикомедия в жанре фантастической антиутопии"
-                , LocalDate.of(1986, 12, 1), 8);
+        Film filmUpdate = new Film("Ку! Кин-дза-дза!",
+                "советская двухсерийная трагикомедия в жанре фантастической антиутопии",
+                LocalDate.of(1986, 12, 1), 8);
         filmUpdate.setId(1);
         body = objectMapper.writeValueAsString(filmUpdate);
         this.mockMvc.perform(put("/films")
@@ -90,9 +90,9 @@ class FilmControllerTest {
                         .contentType("application/json"))
                 .andExpect(status().isOk());
 
-        Film filmSec = new Film("Ку! Кин-дза-дза!"
-                , "полнометражный фантастический анимационный фильм"
-                , LocalDate.of(2013, 4, 11), 6);
+        Film filmSec = new Film("Ку! Кин-дза-дза!",
+                "полнометражный фантастический анимационный фильм",
+                LocalDate.of(2013, 4, 11), 6);
         body = objectMapper.writeValueAsString(filmSec);
         this.mockMvc.perform(post("/films")
                         .content(body)
@@ -119,9 +119,9 @@ class FilmControllerTest {
 
     @Test
     void postFilmInvalidDescriptionTest() throws Exception {
-        Film film = new Film("Кин-дза-дза!"
-                , RandomString.make(201)
-                , LocalDate.of(1986, 12, 1), 8);
+        Film film = new Film("Кин-дза-дза!",
+                RandomString.make(201),
+                LocalDate.of(1986, 12, 1), 8);
         String body = objectMapper.writeValueAsString(film);
         this.mockMvc.perform(post("/films")
                         .content(body)
