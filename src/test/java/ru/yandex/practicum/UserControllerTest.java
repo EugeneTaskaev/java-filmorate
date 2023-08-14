@@ -32,9 +32,9 @@ class UserControllerTest {
 
     @Test
     void postValidUserTest() throws Exception {
-        User user = new User(null,"niktoneponyal@gmail.com"
-                , "pkingsbl", "Vialeta"
-                , LocalDate.of(1922, 12, 1));
+        User user = new User(null,"niktoneponyal@gmail.com",
+                "pkingsbl", "Vialeta",
+                LocalDate.of(1922, 12, 1));
         String body = objectMapper.writeValueAsString(user);
         this.mockMvc.perform(post("/users")
                         .content(body)
@@ -44,18 +44,18 @@ class UserControllerTest {
 
     @Test
     void putValidUserTest() throws Exception {
-        User user = new User(null, "niktoneponyal@gmail.com"
-                , "pkingsbl", "Vialeta"
-                , LocalDate.of(1922, 12, 1));
+        User user = new User(null, "niktoneponyal@gmail.com",
+                "pkingsbl", "Vialeta",
+                LocalDate.of(1922, 12, 1));
         String body = objectMapper.writeValueAsString(user);
         this.mockMvc.perform(post("/users")
                         .content(body)
                         .contentType("application/json"))
                 .andExpect(status().isOk());
 
-        User userUpdate = new User(null, "niktoneponyal@gmail.com"
-                , "anigilyator2000", "Vialeta"
-                , LocalDate.of(1922, 12, 1));
+        User userUpdate = new User(null, "niktoneponyal@gmail.com",
+                "anigilyator2000", "Vialeta",
+                LocalDate.of(1922, 12, 1));
         userUpdate.setId(1);
         body = objectMapper.writeValueAsString(userUpdate);
         this.mockMvc.perform(put("/users")
@@ -66,18 +66,18 @@ class UserControllerTest {
 
     @Test
     void getValidUserTest() throws Exception {
-        User user = new User(null, "niktoneponyal@gmail.com"
-                , "pkingsbl", "Vialeta"
-                , LocalDate.of(1922, 12, 1));
+        User user = new User(null, "niktoneponyal@gmail.com",
+                "pkingsbl", "Vialeta",
+                LocalDate.of(1922, 12, 1));
         String body = objectMapper.writeValueAsString(user);
         this.mockMvc.perform(post("/users")
                         .content(body)
                         .contentType("application/json"))
                 .andExpect(status().isOk());
 
-        User userSec = new User(null, "niktoneponyal@gmail.com"
-                , "anigilyator2000", "Vi"
-                , LocalDate.of(2000, 12, 1));
+        User userSec = new User(null, "niktoneponyal@gmail.com",
+                "anigilyator2000", "Vi",
+                LocalDate.of(2000, 12, 1));
         body = objectMapper.writeValueAsString(userSec);
         this.mockMvc.perform(post("/users")
                         .content(body)
@@ -92,9 +92,9 @@ class UserControllerTest {
 
     @Test
     void postUserWithoutLoginTest() throws Exception {
-        User user = new User(null, "niktoneponyal@gmail.com"
-                , " ", "Vialeta"
-                , LocalDate.of(1922, 12, 1));
+        User user = new User(null, "niktoneponyal@gmail.com",
+                " ", "Vialeta",
+                LocalDate.of(1922, 12, 1));
         String body = objectMapper.writeValueAsString(user);
         this.mockMvc.perform(post("/users")
                         .content(body)
@@ -104,9 +104,9 @@ class UserControllerTest {
 
     @Test
     void postUserInvalidDateTest() throws Exception {
-        User user = new User(null, "niktoniktoneponyal@gmail.comneponyal"
-                , "pkingsbl", "Vialeta"
-                , LocalDate.of(2332, 12, 1));
+        User user = new User(null, "niktoniktoneponyal@gmail.comneponyal",
+                "pkingsbl", "Vialeta",
+                LocalDate.of(2332, 12, 1));
         String body = objectMapper.writeValueAsString(user);
         this.mockMvc.perform(post("/users")
                         .content(body)
@@ -116,9 +116,9 @@ class UserControllerTest {
 
     @Test
     void postUserInvalidEmailTest() throws Exception {
-        User user = new User(null, "niktoneponyal"
-                , "pkingsbl", "Vialeta"
-                , LocalDate.of(1922, 12, 1));
+        User user = new User(null, "niktoneponyal",
+                "pkingsbl", "Vialeta",
+                LocalDate.of(1922, 12, 1));
         String body = objectMapper.writeValueAsString(user);
         this.mockMvc.perform(post("/users")
                         .content(body)
@@ -128,9 +128,9 @@ class UserControllerTest {
 
     @Test
     void postValidUserWithoutNameTest() throws Exception {
-        User user = new User(null, "niktoneponyal@gmail.com"
-                , "pkingsbl", ""
-                , LocalDate.of(1922, 12, 1));
+        User user = new User(null, "niktoneponyal@gmail.com",
+                "pkingsbl", "",
+                LocalDate.of(1922, 12, 1));
         String body = objectMapper.writeValueAsString(user);
         this.mockMvc.perform(post("/users")
                         .content(body)

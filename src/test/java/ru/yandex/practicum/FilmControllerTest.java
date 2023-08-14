@@ -34,9 +34,9 @@ class FilmControllerTest {
 
     @Test
     void postValidFilmTest() throws Exception {
-        Film film = new Film("Кин-дза-дза!"
-                , "советская двухсерийная трагикомедия в жанре фантастической антиутопии"
-                , LocalDate.of(1986, 12, 1), 8);
+        Film film = new Film("Кин-дза-дза!",
+                "советская двухсерийная трагикомедия в жанре фантастической антиутопии",
+                LocalDate.of(1986, 12, 1), 8);
         String body = objectMapper.writeValueAsString(film);
         this.mockMvc.perform(post("/films")
                         .content(body)
@@ -46,9 +46,9 @@ class FilmControllerTest {
 
     @Test
     void putValidUpdateNameFilmTest() throws Exception {
-        Film film = new Film("Кин-дза-дза!"
-                , "советская двухсерийная трагикомедия в жанре фантастической антиутопии"
-                , LocalDate.of(1986, 12, 1), 8);
+        Film film = new Film("Кин-дза-дза!",
+                "советская двухсерийная трагикомедия в жанре фантастической антиутопии",
+                LocalDate.of(1986, 12, 1), 8);
         String body = objectMapper.writeValueAsString(film);
         this.mockMvc.perform(post("/films")
                         .content(body)
@@ -67,9 +67,9 @@ class FilmControllerTest {
 
     @Test
     void putNotFoundFilmTest() throws Exception {
-        Film film = new Film("Ку! Кин-дза-дза!"
-                , "советская двухсерийная трагикомедия в жанре фантастической антиутопии"
-                , LocalDate.of(1986, 12, 1), 8);
+        Film film = new Film("Ку! Кин-дза-дза!",
+                "советская двухсерийная трагикомедия в жанре фантастической антиутопии",
+                LocalDate.of(1986, 12, 1), 8);
         film.setId(2);
         String body = objectMapper.writeValueAsString(film);
         this.mockMvc.perform(put("/films")
@@ -81,9 +81,9 @@ class FilmControllerTest {
 
     @Test
     void getValidFilmTest() throws Exception {
-        Film film = new Film("Кин-дза-дза!"
-                , "советская двухсерийная трагикомедия в жанре фантастической антиутопии"
-                , LocalDate.of(1986, 12, 1), 8);
+        Film film = new Film("Кин-дза-дза!",
+                "советская двухсерийная трагикомедия в жанре фантастической антиутопии",
+                LocalDate.of(1986, 12, 1), 8);
         String body = objectMapper.writeValueAsString(film);
         this.mockMvc.perform(post("/films")
                         .content(body)
@@ -107,9 +107,9 @@ class FilmControllerTest {
 
     @Test
     void postFilmWithoutNameTest() throws Exception {
-        Film film = new Film(" "
-                , "советская двухсерийная трагикомедия в жанре фантастической антиутопии"
-                , LocalDate.of(1986, 12, 1), 8);
+        Film film = new Film(" ",
+                "советская двухсерийная трагикомедия в жанре фантастической антиутопии",
+                LocalDate.of(1986, 12, 1), 8);
         String body = objectMapper.writeValueAsString(film);
         this.mockMvc.perform(post("/films")
                         .content(body)
