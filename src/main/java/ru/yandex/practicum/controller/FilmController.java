@@ -20,7 +20,7 @@ public class FilmController {
 
     private final Map<Integer, Film> films = new HashMap<>();
 
-    public void clean(){
+    public void clean() {
         this.films.clear();
         this.idFilm = 1;
     }
@@ -36,7 +36,7 @@ public class FilmController {
     }
 
     private static void checkReleaseDate(LocalDate releaseDate) throws ValidationException {
-        if(releaseDate.isBefore(LocalDate.of(1895,12,28))) {
+        if (releaseDate.isBefore(LocalDate.of(1895,12,28))) {
             throw new ValidationException("Дата релиза ранее 28 декабря 1895 года");
         }
     }
