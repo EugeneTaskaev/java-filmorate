@@ -19,14 +19,14 @@ public class UserController {
 
     private final Map<Integer, User> users = new HashMap<>();
 
-    public void clean(){
+    public void clean() {
         this.users.clear();
         this.idUser = 1;
     }
     @PostMapping
     public User create(@Valid @RequestBody User user) throws ValidationException {
         log.debug("POST /users создание пользователя");
-        if (user.getName() == null || user.getName().isEmpty()){
+        if (user.getName() == null || user.getName().isEmpty()) {
             user.setName(user.getLogin());
         }
         if (user.getLogin().contains(" ")) {
