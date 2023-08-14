@@ -19,19 +19,18 @@ public class UserController {
 
     private final Map<Integer, User> users = new HashMap<>();
 
-    public void clean() {
+    public void clean(){
         this.users.clear();
         this.idUser = 1;
     }
-
     @PostMapping
     public User create(@Valid @RequestBody User user) throws ValidationException {
         log.debug("POST /users создание пользователя");
-        if (user.getName() == null || user.getName().isEmpty()) {
+        if (user.getName() == null || user.getName().isEmpty()){
             user.setName(user.getLogin());
         }
         if (user.getLogin().contains(" ")) {
-            throw new ValidationException("Логин содержит пробел");
+            throw new ValidationException("Логин содержит пробелы");
         }
         user.setId(idUser++);
         users.put(user.getId(), user);
@@ -53,7 +52,7 @@ public class UserController {
     @GetMapping
     public Collection<User> findAll() {
         log.debug("GET /users получение списка всех пользователей");
-        log.info("К настоящему моменту количество пользователей: {}", users.size());
+        log.info("В данный момент количество пользователей: {}", users.size());
         return users.values();
     }
 
