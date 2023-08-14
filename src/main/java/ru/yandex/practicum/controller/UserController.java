@@ -23,6 +23,7 @@ public class UserController {
         this.users.clear();
         this.idUser = 1;
     }
+
     @PostMapping
     public User create(@Valid @RequestBody User user) throws ValidationException {
         log.debug("POST /users создание пользователя");
